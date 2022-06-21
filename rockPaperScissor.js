@@ -24,18 +24,19 @@ function play(){
 
     if(computer === player){
     console.log("It's a draw")
-    return;
+    return "draw";
     }
-    else if (computer === "rock" && player == "scissors"){
+    else if (computer === "rock" && player === "scissors"){
         console.log("Computer won");
-        return;
+        return "computer";
     }
       
-   else if (computer === "paper" && player == "rock"){
+   else if (computer === "paper" && player === "rock"){
         console.log("Computer won");
-        return;
+        return "computer";
     }else{
         console.log("Player won !!")
+        return "player"
     }
 
    
@@ -43,4 +44,30 @@ function play(){
 
 }
 
-play();
+function game(){
+    let player = 0;
+    let computer = 0;
+    let roundResult = "";
+    for (let index = 0; index < 5; index++) {
+        roundResult = play();
+        if(roundResult === "player")
+            player ++;
+        else if(roundResult === "computer")
+            computer ++;
+
+        console.log("Computer total: " + computer)
+        console.log("Playe total: " + player)
+    }
+
+    if(player > computer)
+        console.log("Player won!!!!!")
+    else if(player < computer)
+        console.log("Computer won!!!!!")
+    else
+        console.log("It's a draw!")
+
+}
+
+//Launching the game:
+game();
+
