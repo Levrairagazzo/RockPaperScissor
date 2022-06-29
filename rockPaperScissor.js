@@ -12,8 +12,14 @@ else
     return "scissors";
 }
 function playerPlay(){
-    let playerChoice = prompt("Rock? Paper? Or Scissors?");
-    return playerChoice.toLowerCase();
+    // alert("Rock? Paper? Or Scissors?");
+    const element = document.getElementById("myBtn");
+element.addEventListener("click", myFunction);
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Hello World";
+}
+    return;
 }
 
 function play(){
@@ -40,34 +46,40 @@ function play(){
     }
 
    
-
-
 }
 
-function game(){
-    let player = 0;
-    let computer = 0;
-    let roundResult = "";
-    for (let index = 0; index < 5; index++) {
-        roundResult = play();
-        if(roundResult === "player")
-            player ++;
-        else if(roundResult === "computer")
-            computer ++;
-
-        console.log("Computer total: " + computer)
-        console.log("Playe total: " + player)
+function rock() {
+    let comp = computerPlay();
+   
+    if(comp === "rock"){
+    alert("Computer played: " + comp + "\nPlayer played: rock" + "\n This is a draw");
+    }else if (comp === "scissors"){
+        alert("Computer played: " + comp + "\nPlayer played: rock" + "\nPlayer win!!");
+    }else if (comp === "paper") {
+        alert("Computer played: " + comp + "\nPlayer played: rock" + "\nComputer wins!!");
     }
-
-    if(player > computer)
-        console.log("Player won!!!!!")
-    else if(player < computer)
-        console.log("Computer won!!!!!")
-    else
-        console.log("It's a draw!")
-
+        
+  }
+function paper(){
+    let comp = computerPlay();
+    if(comp === "paper"){
+        alert("Computer played: " + comp + "\nPlayer played: paper" + "\n This is a draw");
+        }else if (comp === "scissors"){
+            alert("Computer played: " + comp + "\nPlayer played: paper" + "\nComputer win!!");
+        }else if (comp === "rock") {
+            alert("Computer played: " + comp + "\nPlayer played: paper" + "\nPlayer wins!!");
+        }
+}
+function scissors(){
+    let comp = computerPlay();
+    if(comp === "scissors"){
+        alert("Computer played: " + comp + "\nPlayer played: scissors" + "\n This is a draw");
+        }else if (comp === "paper"){
+            alert("Computer played: " + comp + "\nPlayer played: scissors" + "\Player win!!");
+        }else if (comp === "rock") {
+            alert("Computer played: " + comp + "\nPlayer played: scissors" + "\nComputer wins!!");
+        }
 }
 
-//Launching the game:
-game();
+
 
